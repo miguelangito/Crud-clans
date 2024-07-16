@@ -33,5 +33,5 @@ public class Clan {
     private LocalDateTime updateAt = LocalDateTime.now();
 
     @Builder.Default
-    private Boolean isActive = true;
+    private Boolean isActive = false;
 } 
