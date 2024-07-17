@@ -6,38 +6,30 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "clan")
-@Data
+@Entity
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Clan {
+public class Cohort {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    
-    private String description;
-    
-    @Builder.Default
-    private LocalDateTime createAt = LocalDateTime.now();
-    
-    @Builder.Default
-    private LocalDateTime updateAt = LocalDateTime.now();
 
     @Builder.Default
-    private Boolean isActive = false;
+    private LocalDateTime createdAt = LocalDateTime.now();
+    
+    @Builder.Default
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @ManyToOne()
-    @JoinColumn(name = "cohort_id",referencedColumnName = "id")
-    private Cohort cohort;
-} 
+    @Builder.Default
+    private Boolean isActive = true;
+}
